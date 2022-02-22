@@ -127,4 +127,15 @@ class FileGo {
     );
     return $do;
   }
+  
+  public function getUserPatent($user) {
+    $count = 0;
+    foreach(glob("protected/brevetti/*") as $file) {
+      $brevetto = explode("{|}", file_get_contents($file));
+      if ($brevetto[0] == $user) {
+        $count = $count++;
+      }
+    }
+    return $count;
+  }
 }
