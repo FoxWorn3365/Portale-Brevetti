@@ -19,4 +19,18 @@ if (empty($url)) {
   require_once("protected/components/security.php");
   require_once("protected/pages/dahsboardMain.php");
   require_once("protected/components/footer.php");
+} elseif ($url == "/dashboard/nuovobrevetto") {
+  require_once("protected/components/header.php");
+  require_once("protected/components/security.php");
+  require_once("protected/pages/newBrevetto.php");
+  require_once("protected/components/footer.php");
+} elseif ($url == "/app/newBrevetto") {
+  require_once("protected/components/header.php");
+  require_once("protected/components/security.php");
+  require_once("protected/components/nuovobrevettotuttoperte.php");
+  require_once("protected/components/footer.php");
+} else {
+  require_once("protected/components/header.php");
+  require_once("protected/pages/404.php");
+  require_once("protected/components/footer.php");
 }
