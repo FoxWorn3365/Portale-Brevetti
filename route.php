@@ -29,10 +29,30 @@ if (empty($url)) {
   require_once("protected/components/security.php");
   require_once("protected/components/nuovobrevettotuttoperte.php");
   require_once("protected/components/footer.php");
-  } elseif ($url == "/dashboard/mep") {
+} elseif ($url == "/dashboard/mep") {
   require_once("protected/components/header.php");
   require_once("protected/components/security.php");
   require_once("protected/pages/mieibrevetti.php");
+  require_once("protected/components/footer.php");
+} elseif ($url == "/admin/") {
+  require_once("protected/components/header.php");
+  require_once("protected/components/adminsec.php");
+  require_once("protected/pages/admin_MAIN.php");
+  require_once("protected/components/footer.php");
+} elseif ($url == "/admin/brevetti") {
+  require_once("protected/components/header.php");
+  require_once("protected/components/adminsec.php");
+  require_once("protected/pages/admin_brevettilist.php");
+  require_once("protected/components/footer.php");
+} elseif ($url == "/admin/modifica") {
+  require_once("protected/components/header.php");
+  require_once("protected/components/adminsec.php");
+  require_once("protected/pages/admin_brevetti_change.php");
+  require_once("protected/components/footer.php");
+} elseif (stripos($url, "/brevetti/") {
+  $brevetto = filter_var(str_replace("/brevetti/", "", $url), FILTER_SANITIZE_NUMBER_INT);
+  require_once("protected/components/header.php");
+  require_once("protected/components/build_brevetto.php");
   require_once("protected/components/footer.php");
 } else {
   require_once("protected/components/header.php");
