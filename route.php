@@ -9,6 +9,7 @@ if (empty($url)) {
 } elseif ($url == "/auth") {
   require_once("protected/components/header.php");
   require_once("protected/components/authMePls.php");
-} elseif ($url = "/antifortnine/") {
-  header("Location: https://pornhub.com/");
+} elseif ($url == "/info") {
+  require_once("protected/components/header.php");
+  require_once("protected/pages/info.php");
 }
