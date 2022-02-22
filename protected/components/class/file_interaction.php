@@ -23,7 +23,7 @@ class FileGo {
     $brevetto = $author . '{|}' strtotime("now") . '{|}' . $title . '{|}' . $content . '{|}0';
     if (!file_exists("protected/brevetti/$id")) {
        file_put_contents("protected/brevetti/$id", $brevetto);
-       return 200;
+       return $id;
     } else {
        return 500;
     }
