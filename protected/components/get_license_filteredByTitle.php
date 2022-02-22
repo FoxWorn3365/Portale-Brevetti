@@ -8,7 +8,7 @@ foreach(glob("protected/brevetti/*") as $file) {
   $filename = str_replace("protected/brevetti/", "", $filename);
   $get = $b->getLicense($file);
   $c = $b->loadStatusColor();
-  if ($get !== 502 && stripos($b[1], $title) !== false) {
+  if ($get !== 502 && stripos($get[1], $title) !== false) {
     ?>
     <a style='text-decoration: none; color: black' href='/brevetto/<?= $file; ?>'>
     <span style='font-size: 30px'><b><?= $get[2]; ?></b></span><br>
