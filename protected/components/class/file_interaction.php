@@ -115,4 +115,16 @@ class FileGo {
       return 500;
     }
   }
+  
+  public function loadStatusColor() {
+    $do = array(
+      [
+      "0" => "yellow",
+      "1" => "green",
+      "2" => "red",
+      "3" => "lime"
+      ]
+    );
+    return $do;
+  }
 }
