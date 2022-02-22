@@ -68,5 +68,50 @@ class FileGo {
     }
   }
   
+  public function deleteLicense($id) {
+    $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+    if (!file_exists("protected/brevetti/$id")) {
+      return 502;
+    } else {
+      if (unlink("protected/brevetti/$id")) {
+        return 200;
+      } else {
+        return 505;
+      }
+    }
+  }
   
+  public function setLicenseToPublicDomain($id) {
+    $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+    if (!file_exists("protected/brevetti/$id")) {
+      return 502;
+    }
     
+    $brevetto = explode("{|}", file_get_contents("protected/brevetti/$id"));
+    $newSubString = 'guest{|}' . $brevetto[1] . '{|}' . $brevetto[2] . '{|}' . $brevetto[3] . '{|}' . $brevetto[4];
+    file_put_contents("protected/brevetti/$id", $newSubString);
+    if ($this->getLicense($id)[0] === 'guest') {
+      return 200;
+    } else {
+      return 500;
+    }
+  }
+  
+  public function setLicenseOwnerToASpecificUser($id, $user) {
+    $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+    $user = filter_var($user, FILTER_SANITIZE_STRING);
+    if (!file_exists("protected/brevetti/$id")) {
+      return 502;
+    }
+    if (!$this->checkValidStringFormat($user)) {
+      return 501;
+    }
+    $brevetto = explode("{|}", file_get_contents("protected/brevetti/$id"));
+    $newSubString = $user . '{|}' . $brevetto[1] . '{|}' . $brevetto[2] . '{|}' . $brevetto[3] . '{|}' . $brevetto[4];
+    file_put_contents("protected/brevetti/$id", $newSubString);
+    if ($this->getLicense($id)[0] === $user) {
+      return 200;
+    } else {
+      return 500;
+    }
+  }
