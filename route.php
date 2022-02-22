@@ -29,6 +29,11 @@ if (empty($url)) {
   require_once("protected/components/security.php");
   require_once("protected/components/nuovobrevettotuttoperte.php");
   require_once("protected/components/footer.php");
+  } elseif ($url == "/dashboard/mep") {
+  require_once("protected/components/header.php");
+  require_once("protected/components/security.php");
+  require_once("protected/pages/mieibrevetti.php");
+  require_once("protected/components/footer.php");
 } else {
   require_once("protected/components/header.php");
   require_once("protected/pages/404.php");
