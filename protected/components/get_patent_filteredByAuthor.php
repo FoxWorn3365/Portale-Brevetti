@@ -6,7 +6,7 @@ $b = new FileGo();
 
 foreach(glob("protected/brevetti/*") as $file) {
   $filename = str_replace("protected/brevetti/", "", $filename);
-  $get = $b->getLicense($file);
+  $get = $b->getPatent($file);
   $c = $b->loadStatusColor();
   if ($get !== 502 && stripos($get[1], $author) !== false) {
     ?>
