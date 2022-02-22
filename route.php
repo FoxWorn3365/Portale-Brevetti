@@ -9,7 +9,14 @@ if (empty($url)) {
 } elseif ($url == "/auth") {
   require_once("protected/components/header.php");
   require_once("protected/components/authMePls.php");
+  require_once("protected/components/footer.php");
 } elseif ($url == "/info") {
   require_once("protected/components/header.php");
   require_once("protected/pages/info.php");
+  require_once("protected/components/footer.php");
+} elseif ($url == "/dashboard/") {
+  require_once("protected/components/header.php");
+  require_once("protected/components/security.php");
+  require_once("protected/pages/dahsboardMain.php");
+  require_once("protected/components/footer.php");
 }
