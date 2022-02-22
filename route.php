@@ -1,6 +1,7 @@
 <?php
 $url = $_SERVER["REQUEST_URI"];
 
+session_start();
 if (empty($url)) {
   require_once("protected/pages/main.php");
 } elseif ($url == "/login") {
@@ -44,12 +45,13 @@ if (empty($url)) {
   require_once("protected/components/adminsec.php");
   require_once("protected/pages/admin_brevettilist.php");
   require_once("protected/components/footer.php");
-} elseif ($url == "/admin/modifica") {
+} elseif (stripos($url, "/admin/modifica/") !== false) {
+  $brevetto = filter_var(str_replace("/admin/modifica/", "", $url), FILTER_SANITIZE_NUMBER_INT);
   require_once("protected/components/header.php");
   require_once("protected/components/adminsec.php");
   require_once("protected/pages/admin_brevetti_change.php");
   require_once("protected/components/footer.php");
-} elseif (stripos($url, "/brevetti/") {
+} elseif (stripos($url, "/brevetto/") {
   $brevetto = filter_var(str_replace("/brevetto/", "", $url), FILTER_SANITIZE_NUMBER_INT);
   require_once("protected/components/header.php");
   require_once("protected/components/build_brevetto.php");
