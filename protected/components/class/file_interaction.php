@@ -128,6 +128,18 @@ class FileGo {
     return $do;
   }
   
+  public function loadNameFromStatus() {
+    $do = array(
+      [
+      "0" => "In Approvazione...",
+      "1" => "Approvato",
+      "2" => "Rifiutato",
+      "3" => "Scaduto"
+      ]
+    );
+    return $do;
+  }
+  
   public function getUserPatentCount($user) {
     $count = 0;
     foreach(glob("protected/brevetti/*") as $file) {
