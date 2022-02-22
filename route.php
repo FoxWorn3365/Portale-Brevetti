@@ -50,7 +50,7 @@ if (empty($url)) {
   require_once("protected/pages/admin_brevetti_change.php");
   require_once("protected/components/footer.php");
 } elseif (stripos($url, "/brevetti/") {
-  $brevetto = filter_var(str_replace("/brevetti/", "", $url), FILTER_SANITIZE_NUMBER_INT);
+  $brevetto = filter_var(str_replace("/brevetto/", "", $url), FILTER_SANITIZE_NUMBER_INT);
   require_once("protected/components/header.php");
   require_once("protected/components/build_brevetto.php");
   require_once("protected/components/footer.php");
