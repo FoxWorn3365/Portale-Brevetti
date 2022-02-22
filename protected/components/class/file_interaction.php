@@ -12,7 +12,7 @@ class FileGo {
   }
  
    
-  public function newLicense($author, $content, $title) {
+  public function newPatent($author, $content, $title) {
     $content = filter_var($content, FILTER_SANITIZE_STRING);
     $title = filter_var($title, FILTER_SANITIZE_STRING);
     $author = filter_var($title, FILTER_SANITIZE_STRING);
@@ -29,7 +29,7 @@ class FileGo {
     }
   }
   
-  public function getLicenseStatus($id) {
+  public function getPatentStatus($id) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if (!file_exists("protected/brevetti/$id")) {
       return 502;
@@ -38,7 +38,7 @@ class FileGo {
     return $tempStatus[3];
   }
   
-  public function setLicenseStatus($id, $status) {
+  public function setPatentStatus($id, $status) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     $status = filter_var($status, FILTER_SANITIZE_NUMBER_INT);
     // 0 = in approvazione; 1 = approvato; 2 = negato; 3 = scaduto (teoricamente messo in automatico dal server
@@ -52,14 +52,14 @@ class FileGo {
     $brevetto = explode("{|}", file_get_contents("protected/brevetti/$id"));
     $newSubString = $brevetto[0] . '{|}' . $brevetto[1] . '{|}' . $brevetto[2] . '{|}' . $brevetto[3] . '{|}' . $status;
     file_put_contents("protected/brevetti/$id", $newSubString);
-    if ($this->getLicenseStatus($id) === $id) {
+    if ($this->getPatentStatus($id) === $id) {
       return 200;
     } else {
       return 500;
     }
   }
   
-  public function getLicense($id) {
+  public function getPatent($id) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if (!file_exists("protected/brevetti/$id")) {
       return 502;
@@ -68,7 +68,7 @@ class FileGo {
     }
   }
   
-  public function deleteLicense($id) {
+  public function deletePatent($id) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if (!file_exists("protected/brevetti/$id")) {
       return 502;
@@ -81,7 +81,7 @@ class FileGo {
     }
   }
   
-  public function setLicenseToPublicDomain($id) {
+  public function setPatentToPublicDomain($id) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     if (!file_exists("protected/brevetti/$id")) {
       return 502;
@@ -90,14 +90,14 @@ class FileGo {
     $brevetto = explode("{|}", file_get_contents("protected/brevetti/$id"));
     $newSubString = 'guest{|}' . $brevetto[1] . '{|}' . $brevetto[2] . '{|}' . $brevetto[3] . '{|}' . $brevetto[4];
     file_put_contents("protected/brevetti/$id", $newSubString);
-    if ($this->getLicense($id)[0] === 'guest') {
+    if ($this->getPatent($id)[0] === 'guest') {
       return 200;
     } else {
       return 500;
     }
   }
   
-  public function setLicenseOwnerToASpecificUser($id, $user) {
+  public function setPatentOwnerToASpecificUser($id, $user) {
     $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
     $user = filter_var($user, FILTER_SANITIZE_STRING);
     if (!file_exists("protected/brevetti/$id")) {
@@ -109,7 +109,7 @@ class FileGo {
     $brevetto = explode("{|}", file_get_contents("protected/brevetti/$id"));
     $newSubString = $user . '{|}' . $brevetto[1] . '{|}' . $brevetto[2] . '{|}' . $brevetto[3] . '{|}' . $brevetto[4];
     file_put_contents("protected/brevetti/$id", $newSubString);
-    if ($this->getLicense($id)[0] === $user) {
+    if ($this->getPatent($id)[0] === $user) {
       return 200;
     } else {
       return 500;
