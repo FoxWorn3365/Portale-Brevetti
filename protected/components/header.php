@@ -24,7 +24,3 @@ if (!empty($_SESSION["user"])) {
         <a href="/brevetti-non-validi" class="w3-bar-item w3-button">Brevetti non Validi</a>
         <a href="/login" class="w3-bar-item w3-button"><?= $text; ?></a>
      </div>
-    
-<?php
-require_once("protected/pages/index.php");
-?>
