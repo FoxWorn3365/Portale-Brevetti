@@ -1,7 +1,6 @@
 <?php
-use Brevetti\FileGo;
 require "protected/autoload.php";
-
+use Brevetti\FileGo;
 $b = new FileGo();
 ?>
      <h2>Benvenuto, <?= $_SESSION["user"]; ?></h2>

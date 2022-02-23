@@ -25,7 +25,7 @@ if (count($lt) < 41 && count($ld) < 501) {
     <h2 style='color: green'>Brevetto creato con successo!</h2>
     Il tuo brevetto (<i><?= $titolo; ?></i>) è stato appena inviato in approvazione!<br>
     Verrà approvato entro 48h dal Big Bro oppure dai suoi aiutanti!<br><br><br>
-    <a href='/brevetto/<?= $success; ?'><button class='w3-button w3-green w3-text-white'>Vai alla pagina del Brevetto</button></a>    <a href='/dashboard/mep'><button class='w3-button w3-green w3-text-white'>Vai ai tuoi Brevetti</button></a>
+    <a href='/brevetto/<?= $success; ?>'><button class='w3-button w3-green w3-text-white'>Vai alla pagina del Brevetto</button></a>    <a href='/dashboard/mep'><button class='w3-button w3-green w3-text-white'>Vai ai tuoi Brevetti</button></a>
 <?php
   }
 } else {

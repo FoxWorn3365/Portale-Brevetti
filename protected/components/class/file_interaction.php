@@ -20,7 +20,7 @@ class FileGo {
     if (!$this->checkValidStringFormat($content) && !$this->checkValidStringFormat($title) && !$this->checkValidStringFormat($author)) {
       return 501;
     }
-    $brevetto = $author . '{|}' strtotime("now") . '{|}' . $title . '{|}' . $content . '{|}0';
+    $brevetto = $author . '{|}' . strtotime("now") . '{|}' . $title . '{|}' . $content . '{|}0';
     if (!file_exists("protected/brevetti/$id")) {
        file_put_contents("protected/brevetti/$id", $brevetto);
        return $id;
