@@ -16,7 +16,7 @@ class FileGo {
     $content = filter_var($content, FILTER_SANITIZE_STRING);
     $title = filter_var($title, FILTER_SANITIZE_STRING);
     $author = filter_var($title, FILTER_SANITIZE_STRING);
-    $id = rand(1000000000, 9999999997);
+    $id = uniqid(true);
     if (!$this->checkValidStringFormat($content) && !$this->checkValidStringFormat($title) && !$this->checkValidStringFormat($author)) {
       return 501;
     }
