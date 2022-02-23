@@ -9,7 +9,7 @@ $brevInfo = $b->getPatent($brevetto);
      <h2>Portale Brevetti - zona Admin</h2>
      <hr><br><br>
      <h3>Stai modificando il brevetto: <?= $brevetto; ?></h3>
-     <form method="post" action="/app/editBrevetto">ù
+     <form method="post" action="/app/editBrevetto">
        <input type="hidden" name="id" value="<?= $brevetto; ?>">
        Titolo del brevetto:<br>
        <input type="text" name="nome" value="<?= $brevInfo[2]; ?>"><br>
