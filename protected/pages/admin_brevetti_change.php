@@ -1,12 +1,4 @@
-<?php
-use Brevetti\FileGo;
-require "protected/autoload.php";
-
-$b = new FileGo();
-// Recupero tutto sul brevetto
-$brevInfo = $b->getPatent($brevetto);
-?>
-     <h2>Portale Brevetti - zona Admin</h2>
+  <h2>Portale Brevetti - zona Admin</h2>
      <hr><br><br>
      <h3>Stai modificando il brevetto: <?= $brevetto; ?></h3>
      <br><br>
