@@ -13,7 +13,7 @@ switch ($url) {
     require_once("protected/pages/login.php");
     require_once("protected/components/footer.php");
     break;
-  case: '/auth':
+  case '/auth':
     require_once("protected/components/header.php");
     require_once("protected/components/authMePls.php");
     require_once("protected/components/footer.php");
@@ -21,6 +21,12 @@ switch ($url) {
   case '/info':
     require_once("protected/components/header.php");
     require_once("protected/pages/info.php");
+    require_once("protected/components/footer.php");
+    break;
+  case '/dashboard':
+    require_once("protected/components/header.php");
+    require_once("protected/components/security.php");
+    require_once("protected/pages/dahsboardMain.php");
     require_once("protected/components/footer.php");
     break;
   case '/dashboard/':
@@ -51,6 +57,12 @@ switch ($url) {
     require_once("protected/components/header.php");
     require_once("protected/components/security.php");
     require_once("protected/pages/mieibrevetti.php");
+    require_once("protected/components/footer.php");
+    break;
+  case '/admin':
+    require_once("protected/components/header.php");
+    require_once("protected/components/adminsec.php");
+    require_once("protected/pages/admin_MAIN.php");
     require_once("protected/components/footer.php");
     break;
   case '/admin/':
