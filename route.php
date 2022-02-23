@@ -1,6 +1,8 @@
 <?php
 $url = $_SERVER["REQUEST_URI"];
 
+require_once("protected/config.php");
+
 session_start();
 if (empty($url)) {
   require_once("protected/pages/main.php");
