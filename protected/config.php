@@ -1,2 +1,2 @@
 <?php
-$allowes_user = array("lego11", "FoxWorn3365", "kiiw");
+$allowes_users = array("lego11", "FoxWorn3365", "kiiw");
