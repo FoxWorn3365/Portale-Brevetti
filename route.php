@@ -77,6 +77,12 @@ switch ($url) {
     require_once("protected/pages/admin_brevettilist.php");
     require_once("protected/components/footer.php");
     break;
+  case '/brevetti':
+    require_once("protected/components/header.php");
+    require_once("protected/components/adminsec.php");
+    require_once("protected/pages/admin_brevettilist.php");
+    require_once("protected/components/footer.php");
+    break;
   default;
     if (stripos($url, "/admin/modifica/")) {
       $brevetto = filter_var(str_replace("/admin/modifica/", "", $url), FILTER_SANITIZE_NUMBER_INT);
