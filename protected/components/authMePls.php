@@ -18,4 +18,5 @@ if ($response->status == 200) {
   header("Location: /dashboard/");
 } else {
   header("Location /login");
+  die("Credenziali errate");
 }
